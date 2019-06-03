@@ -13,6 +13,7 @@ use app\models\ContactForm;
 class SiteController extends Controller
 {
     /**
+     * 过滤器
      * {@inheritdoc}
      */
     public function behaviors()
@@ -51,12 +52,17 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'test' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ]
         ];
     }
 
 
     /**
      * Displays homepage.
+     * 缺省路由设置： yii\web\Application::$defaultRoute
      *
      * @return string
      */

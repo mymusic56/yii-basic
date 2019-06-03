@@ -1,7 +1,9 @@
 <?php
 
 $params = require __DIR__ . '/params.php';
+$controllerMap = require __DIR__ . '/controller_map.php';
 $db = require __DIR__ . '/db.php';
+$route = require __DIR__ . '/route.php';
 
 $config = [
     'id' => 'basic',
@@ -47,12 +49,13 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
+            'rules' => $route,
         ],
 
     ],
     'params' => $params,
+    'controllerMap' => $controllerMap,
+    'defaultRoute' => 'post/index',
 ];
 
 if (YII_ENV_DEV) {
